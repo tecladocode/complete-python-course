@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+__pycache__/
+*.scriv
+*.pyc
+*.screenflow
+*.mp4
+exports/
+videos/
+*.numbers
+*.sketch
