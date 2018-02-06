@@ -19,7 +19,6 @@ def get_all_books() -> List[Book]:
 
         cursor.execute('SELECT * FROM books')
         books = cursor.fetchall()
-
     return books
 
 
