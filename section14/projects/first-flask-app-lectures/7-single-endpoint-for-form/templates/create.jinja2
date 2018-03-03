@@ -1,0 +1,22 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Create post</h1>
+<form method="POST">
+	<!-- The action has now been removed, and then it defaults to "this page". -->
+	<!-- Since we're loading the form AND receiving the data on the same route, we don't need to specify the `action` anymore. -->
+	<div>
+		<label for="title">Title</label>
+		<input type="text" name="title" id="title" />
+	</div>
+
+	<div>
+		<label for="content">Content</label>
+		<textarea name="content" id="content"></textarea>
+	</div>
+
+	<div>
+		<input type="submit">
+	</div>
+</form>
+{% endblock %}

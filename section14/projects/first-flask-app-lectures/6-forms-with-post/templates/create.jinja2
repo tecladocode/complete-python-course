@@ -1,0 +1,22 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Create post</h1>
+<form action="/post/create" method="POST">
+	<!-- The action is what route to send data to; the method is how to send the data. -->
+	<!-- using GET sends data as query string parameters; using POST sends it hidden inside the form payload. -->
+	<div>
+		<label for="title">Title</label>
+		<input type="text" name="title" id="title" />
+	</div>
+
+	<div>
+		<label for="content">Content</label>
+		<textarea name="content" id="content"></textarea>
+	</div>
+
+	<div>
+		<input type="submit">
+	</div>
+</form>
+{% endblock %}

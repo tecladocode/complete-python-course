@@ -1,0 +1,21 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<!-- Here the contents are a title and a form.-->
+<h1>Create post</h1>
+<form action="/post/create"> <!-- The action is what route to send data to -->
+	<div> <!-- A div is just a block element; makes other elements appear below this one instead of side by side. -->
+		<label for="title">Title</label> <!-- A label is some text associated with an element. It's particularly useful for screen readers. -->
+		<input type="text" name="title" id="title" /> <!-- A "text" input is a normal text field. -->
+	</div>
+
+	<div>
+		<label for="content">Content</label>
+		<textarea name="content" id="content"></textarea> <!-- A textarea is another type of input which can span multiple lines of text. -->
+	</div>
+
+	<div>
+		<input type="submit"> <!-- When you have a "submit" input, this will send the data in the form to the `action` when pressed. -->
+	</div>
+</form>
+{% endblock %}

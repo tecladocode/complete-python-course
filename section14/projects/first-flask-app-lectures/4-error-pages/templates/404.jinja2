@@ -1,0 +1,9 @@
+<!-- Use the base.jinja2 template. We can then override blocks defined there and "fill them in". -->
+{% extends 'base.jinja2' %}
+
+<!-- Replace the `content` block with whatever we put inside it... -->
+<!-- In this case a title saying "404", and the contents of the `message` variable. -->
+{% block content %}
+<h1>404 — Post not found</h1>
+<p>{{ message }}</p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Welcome to your blog.</h1>
+<h2>Posts</h2> <!-- Here we've got a slightly smaller heading -->
+<ul> <!-- This bullet point list will show a link for each post. -->
+	{% for post_id, post in posts.items() %} <!-- This is very similar to Python, but it's a Jinja2 for loop—looks the same and even we have .items for the dictionary -->
+		<li><a href="{{ url_for('post', post_id=post_id) }}">{{ post['title'] }}</a></li> <!-- Here we use url_for to take us to the appropriate route. -->
+	{% endfor %}
+</ul>
+{% endblock %}
+
+<!--
+We could do this instead:
+
+<ul>
+	<li><a href="/post/0">{ posts[0]['title'] }</a></li>
+    <li><a href="/post/1">{ posts[1]['title'] }</a></li>
+</ul>
+
+But of course, that would give an error if we don't have sufficient posts—and as we add new posts they wouldn't appear in the list.
+-->
