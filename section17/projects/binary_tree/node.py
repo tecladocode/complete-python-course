@@ -1,9 +1,8 @@
 class Node:
-    def __init__(self, name, value, left=None, right=None):
-        self.name = name
+    def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
 
     def __repr__(self):
-        return f'<Node {self.name}, {self.value}>'
+        return f'<Node {self.value}>'
