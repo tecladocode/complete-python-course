@@ -15,7 +15,6 @@ def menu():
             print(movie or 'No movies found.')
         else:
             print('Unknown command-please try again.')
-            continue
         user_input = input("\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie, and 'q' to quit: ")
 
 
