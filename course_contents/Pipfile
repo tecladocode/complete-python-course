@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 requests = "*"
 cachetools = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.7"
