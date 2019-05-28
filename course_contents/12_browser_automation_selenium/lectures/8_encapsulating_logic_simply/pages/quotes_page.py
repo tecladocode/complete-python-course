@@ -1,6 +1,5 @@
 from typing import List
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
 
 from locators.quotes_page_locators import QuotesPageLocators
 from parsers.quote import QuoteParser

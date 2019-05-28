@@ -19,6 +19,6 @@ class QuoteParser:
         return self.parent.find_element_by_css_selector(locator).text
 
     @property
-    def tag(self):
+    def tags(self):
         locator = QuoteLocators.TAGS_LOCATOR
-        return self.parent.find_element_by_css_selector(locator)
+        return self.parent.find_elements_by_css_selector(locator)

@@ -6,19 +6,19 @@ class QuoteParser:
         self.parent = parent
 
     def __repr__(self):
-        return f"<Quote {self.content}, by {self.author}>"
+        return f'<Quote {self.content}, by {self.author}>'
 
     @property
     def content(self):
         locator = QuoteLocators.CONTENT_LOCATOR
-        return self.parent.find_element_by_css_selector(locator).text
+        return self.parent.select_one(locator).string
 
     @property
     def author(self):
         locator = QuoteLocators.AUTHOR_LOCATOR
-        return self.parent.find_element_by_css_selector(locator).text
+        return self.parent.select_one(locator).string
 
     @property
-    def tag(self):
+    def tags(self):
         locator = QuoteLocators.TAGS_LOCATOR
-        return self.parent.find_element_by_css_selector(locator)
+        return self.parent.select(locator)

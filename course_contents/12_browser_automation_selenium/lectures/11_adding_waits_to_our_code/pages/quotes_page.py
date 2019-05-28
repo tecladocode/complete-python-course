@@ -1,6 +1,8 @@
 from typing import List
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.quotes_page_locators import QuotesPageLocators
 from parsers.quote import QuoteParser
@@ -50,6 +52,17 @@ class QuotesPage:
 
     def search_for_quotes(self, author_name: str, tag_name: str) -> List[QuoteParser]:
         self.select_author(author_name)
+
+        # https://selenium-python.readthedocs.io/waits.html
+        WebDriverWait(self.browser, 10).until(
+            expected_conditions.presence_of_element_located(
+                (By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN_VALUE_OPTION)
+            )
+        )
+
+        # Alternatively, implicit wait
+        self.browser.implicitly_wait(10)
+
         try:
             self.select_tag(tag_name)
         except NoSuchElementException:
