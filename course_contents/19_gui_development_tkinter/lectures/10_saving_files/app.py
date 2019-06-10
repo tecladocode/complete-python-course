@@ -7,7 +7,6 @@ def create_file():
     text_area.pack(fill="both", expand=True)
 
     notebook.add(text_area, text="Untitled")
-    notebook.pack(fill="both", expand=True)
     notebook.select(text_area)
 
 
@@ -16,8 +15,8 @@ def save_file():
 
     try:
         filename = file_path.split("/")[-1]
-        current = root.nametowidget(notebook.select())
-        content = current.get("1.0", "end-1c")
+        text_widget = root.nametowidget(notebook.select())
+        content = text_widget.get("1.0", "end-1c")
 
         with open(file_path, "w") as file:
             file.write(content)
@@ -47,6 +46,7 @@ file_menu.add_command(label="New", command=create_file)
 file_menu.add_command(label="Save", command=save_file)
 
 notebook = ttk.Notebook(main)
+notebook.pack(fill="both", expand=True)
 
 create_file()
 

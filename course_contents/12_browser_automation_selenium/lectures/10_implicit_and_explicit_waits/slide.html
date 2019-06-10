@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Code</title>
+
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/reveal.css" />
+    <link rel="stylesheet" href="../css/theme/teclado.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "../css/print/pdf.css"
+        : "../css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <img src="../img/logo.svg" class="logo" />
+      <div class="blog-link">https://blog.tecla.do</div>
+      <div class="slides">
+        <!-- Each slide is a `section`. Duplicate the whole thing and modify the code and `data-line-numbers` for highlighting. -->
+        <section data-transition="none">
+          <h1>Explicit waits</h1>
+          <pre><code data-trim data-line-numbers>
+                import time
+
+                time.sleep(5)  # 5 seconds
+                        </code></pre>
+        </section>
+        <!-- End duplication -->
+
+        <section data-transition="slide-in none">
+          <h1>Explicit waits</h1>
+          <pre><code data-trim data-line-numbers="1-3">
+                from selenium.webdriver.common.by import By
+                from selenium.webdriver.support import expected_conditions
+                from selenium.webdriver.support.wait import WebDriverWait
+
+                WebDriverWait(self.browser, 10).until(
+                    expected_conditions.presence_of_element_located(
+                        (By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN_VALUE_OPTION)
+                    )
+                )
+            </code></pre>
+        </section>
+
+        <section data-transition="none">
+          <h1>Explicit waits</h1>
+          <pre><code data-trim data-line-numbers="5">
+                from selenium.webdriver.common.by import By
+                from selenium.webdriver.support import expected_conditions
+                from selenium.webdriver.support.wait import WebDriverWait
+    
+                WebDriverWait(self.browser, 10).until(
+                    expected_conditions.presence_of_element_located(
+                        (By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN_VALUE_OPTION)
+                    )
+                )
+                </code></pre>
+        </section>
+
+        <section data-transition="none">
+          <h1>Explicit waits</h1>
+          <pre><code data-trim data-line-numbers="6">
+                from selenium.webdriver.common.by import By
+                from selenium.webdriver.support import expected_conditions
+                from selenium.webdriver.support.wait import WebDriverWait
+    
+                WebDriverWait(self.browser, 10).until(
+                    expected_conditions.presence_of_element_located(
+                        (By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN_VALUE_OPTION)
+                    )
+                )
+                </code></pre>
+        </section>
+
+        <section data-transition="none">
+          <h1>Explicit waits</h1>
+          <pre><code data-trim data-line-numbers="7">
+                from selenium.webdriver.common.by import By
+                from selenium.webdriver.support import expected_conditions
+                from selenium.webdriver.support.wait import WebDriverWait
+    
+                WebDriverWait(self.browser, 10).until(
+                    expected_conditions.presence_of_element_located(
+                        (By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN_VALUE_OPTION)
+                    )
+                )
+                </code></pre>
+        </section>
+
+        <section data-transition="slide-in none">
+          <h1>Locators using By</h1>
+          <pre><code data-trim data-line-numbers="3,8">
+                    from selenium.webdriver.common.by import By
+
+                    TAG_DROPDOWN = "select#tag"
+                    JUST_ID = By.ID, "tag"
+
+                    ...
+
+                    self.browser.find_element_by_css_selector(TAG_DROPDOWN)
+                    self.browser.find_element(By.CSS_SELECTOR, TAG_DROPDOWN)
+
+                    self.browser.find_element_by_id("tag")
+                    self.browser.find_element(By.ID, "tag")
+                    self.browser.find_element(*JUST_ID)
+                </code></pre>
+        </section>
+
+        <section data-transition="none">
+          <h1>Locators using By</h1>
+          <pre><code data-trim data-line-numbers="3,9">
+                    from selenium.webdriver.common.by import By
+    
+                    TAG_DROPDOWN = "select#tag"
+                    JUST_ID = By.ID, "tag"
+    
+                    ...
+    
+                    self.browser.find_element_by_css_selector(TAG_DROPDOWN)
+                    self.browser.find_element(By.CSS_SELECTOR, TAG_DROPDOWN)
+    
+                    self.browser.find_element_by_id("tag")
+                    self.browser.find_element(By.ID, "tag")
+                    self.browser.find_element(*JUST_ID)
+                    </code></pre>
+        </section>
+
+        <section data-transition="none">
+          <h1>Locators using By</h1>
+          <pre><code data-trim data-line-numbers="4, 11-13">
+                    from selenium.webdriver.common.by import By
+    
+                    TAG_DROPDOWN = "select#tag"
+                    JUST_ID = By.ID, "tag"
+    
+                    ...
+    
+                    self.browser.find_element_by_css_selector(TAG_DROPDOWN)
+                    self.browser.find_element(By.CSS_SELECTOR, TAG_DROPDOWN)
+    
+                    self.browser.find_element_by_id("tag")
+                    self.browser.find_element(By.ID, "tag")
+                    self.browser.find_element(*JUST_ID)
+                    </code></pre>
+        </section>
+
+        <section>
+          <h1>Other uses of By</h1>
+          <pre><code data-trim>
+                    ID = "id"
+                    XPATH = "xpath"
+                    LINK_TEXT = "link text"
+                    PARTIAL_LINK_TEXT = "partial link text"
+                    NAME = "name"
+                    TAG_NAME = "tag name"
+                    CLASS_NAME = "class name"
+                    CSS_SELECTOR = "css selector"
+                </code></pre>
+        </section>
+
+        <section>
+          <h1>Implicit waits</h1>
+          <pre><code data-trim data-line-numbers="4">
+                    from selenium import webdriver
+
+                    driver = webdriver.Chrome()
+                    driver.implicitly_wait(10) # seconds
+                    </code></pre>
+        </section>
+      </div>
+    </div>
+
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        width: "100%",
+        height: "100%",
+        margin: 0,
+        dependencies: [
+          { src: "../plugin/markdown/marked.js" },
+          { src: "../plugin/markdown/markdown.js" },
+          { src: "../plugin/notes/notes.js", async: true },
+          { src: "../plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

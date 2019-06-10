@@ -7,7 +7,6 @@ def create_file():
     text_area.pack(fill="both", expand=True)
 
     notebook.add(text_area, text="Untitled")
-    notebook.pack(fill="both", expand=True)
     notebook.select(text_area)
 
 
@@ -18,6 +17,7 @@ main = ttk.Frame(root)
 main.pack(fill="both", expand=True, padx=(1), pady=(4, 0))
 
 notebook = ttk.Notebook(main)
+notebook.pack(fill="both", expand=True)
 
 create_file()
 

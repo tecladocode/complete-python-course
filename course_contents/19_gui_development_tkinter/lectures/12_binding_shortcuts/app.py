@@ -2,12 +2,12 @@ import tkinter as tk
 from tkinter import ttk, filedialog
 
 
-def create_file():
+def create_file(content="", title="Untitled"):
     text_area = tk.Text(notebook)
+    text_area.insert("end", content)
     text_area.pack(fill="both", expand=True)
 
-    notebook.add(text_area, text="Untitled")
-    notebook.pack(fill="both", expand=True)
+    notebook.add(text_area, text=title)
     notebook.select(text_area)
 
 
@@ -24,13 +24,7 @@ def open_file():
         print("Open operation cancelled")
         return
 
-    text_area = tk.Text(notebook)
-    text_area.insert("end", content)
-    text_area.pack(fill="both", expand=True)
-
-    notebook.add(text_area, text=filename)
-    notebook.pack(fill="both", expand=True)
-    notebook.select(text_area)
+    create_file(content, filename)
 
 
 def save_file():
@@ -38,8 +32,8 @@ def save_file():
 
     try:
         filename = file_path.split("/")[-1]
-        current = root.nametowidget(notebook.select())
-        content = current.get("1.0", "end-1c")
+        text_widget = root.nametowidget(notebook.select())
+        content = text_widget.get("1.0", "end-1c")
 
         with open(file_path, "w") as file:
             file.write(content)
@@ -70,6 +64,7 @@ file_menu.add_command(label="Open...", command=open_file, accelerator="Ctrl+O")
 file_menu.add_command(label="Save", command=save_file, accelerator="Ctrl+S")
 
 notebook = ttk.Notebook(main)
+notebook.pack(fill="both", expand=True)
 
 create_file()
 

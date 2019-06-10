@@ -1,3 +1,4 @@
+import time
 from typing import List
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -60,8 +61,8 @@ class QuotesPage:
             )
         )
 
-        # Alternatively, implicit wait
-        self.browser.implicitly_wait(10)
+        # Alternatively, explicit wait
+        time.sleep(10)
 
         try:
             self.select_tag(tag_name)

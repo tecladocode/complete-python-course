@@ -7,7 +7,6 @@ def create_file():
     text_area.pack(fill="both", expand=True)
 
     notebook.add(text_area, text="Untitled")
-    notebook.pack(fill="both", expand=True)
     notebook.select(text_area)
 
 
@@ -28,6 +27,7 @@ menubar.add_cascade(menu=file_menu, label="File")
 file_menu.add_command(label="New", command=create_file)
 
 notebook = ttk.Notebook(main)
+notebook.pack(fill="both", expand=True)
 
 create_file()
 

@@ -5,7 +5,7 @@ text_contents = dict()
 
 
 def check_for_changes():
-    current = root.nametowidget(notebook.select())
+    current = get_text_widget()
     content = current.get("1.0", "end-1c")
     name = notebook.tab("current")["text"]
 
@@ -16,13 +16,21 @@ def check_for_changes():
         notebook.tab("current", text=name[:-1])
 
 
-def close_current_tab():
-    current = root.nametowidget(notebook.select())
-    if current_tab_unsaved() and confirm_close_tab():
-        if len(notebook.tabs()) == 1:
-            create_file()
+def get_text_widget():
+    text_widget = notebook.nametowidget(notebook.select())
 
-        notebook.forget(current)
+    return text_widget
+
+
+def close_current_tab():
+    current = get_text_widget()
+    if current_tab_unsaved() and not confirm_close():
+        return
+
+    if len(notebook.tabs()) == 1:
+        create_file()
+
+    notebook.forget(current)
 
 
 def current_tab_unsaved():
@@ -30,11 +38,11 @@ def current_tab_unsaved():
     return current_tab_name[-1] == "*"
 
 
-def confirm_close_tab():
+def confirm_close():
     return messagebox.askyesno(
-        message="You have unsaved changes. Are you sure you want to close this file?",
+        message="You have unsaved changes. Are you sure you want to close?",
         icon="question",
-        title="Confirm Close",
+        title="Unsaved changes",
     )
 
 
@@ -42,35 +50,28 @@ def confirm_quit():
     unsaved = False
 
     for tab in notebook.tabs():
-        text_widget = root.nametowidget(notebook.select())
+        text_widget = root.nametowidget(tab)
         content = text_widget.get("1.0", "end-1c")
 
         if hash(content) != text_contents[str(text_widget)]:
             unsaved = True
             break
 
-    if unsaved:
-        confirm = messagebox.askyesno(
-            message="You have unsaved changes. Are you sure you want to quit?",
-            icon="question",
-            title="Confirm Quit",
-        )
-
-        if not confirm:
-            return
+    if unsaved and not confirm_close():
+        return
 
     root.destroy()
 
 
-def create_file():
+def create_file(content="", title="Untitled"):
     text_area = tk.Text(notebook)
+    text_area.insert("end", content)
     text_area.pack(fill="both", expand=True)
 
-    notebook.add(text_area, text="Untitled")
-    notebook.pack(fill="both", expand=True)
+    notebook.add(text_area, text=title)
     notebook.select(text_area)
 
-    text_contents[str(text_area)] = hash("")
+    text_contents[str(text_area)] = hash(content)
 
 
 def open_file():
@@ -86,15 +87,7 @@ def open_file():
         print("Open operation cancelled")
         return
 
-    text_area = tk.Text(notebook)
-    text_area.insert("end", content)
-    text_area.pack(fill="both", expand=True)
-
-    notebook.add(text_area, text=filename)
-    notebook.pack(fill="both", expand=True)
-    notebook.select(text_area)
-
-    text_contents[str(text_area)] = hash(content)
+    create_file(content, filename)
 
 
 def save_file():
@@ -102,8 +95,8 @@ def save_file():
 
     try:
         filename = file_path.split("/")[-1]
-        current = root.nametowidget(notebook.select())
-        content = current.get("1.0", "end-1c")
+        text_widget = get_text_widget()
+        content = text_widget.get("1.0", "end-1c")
 
         with open(file_path, "w") as file:
             file.write(content)
@@ -113,7 +106,7 @@ def save_file():
         return
 
     notebook.tab("current", text=filename)
-    text_contents[str(current)] = hash(content)
+    text_contents[str(text_widget)] = hash(content)
 
 
 root = tk.Tk()
@@ -139,6 +132,7 @@ file_menu.add_command(
 file_menu.add_command(label="Exit", command=confirm_quit)
 
 notebook = ttk.Notebook(main)
+notebook.pack(fill="both", expand=True)
 
 create_file()
 

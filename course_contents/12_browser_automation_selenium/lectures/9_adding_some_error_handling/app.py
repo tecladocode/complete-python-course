@@ -13,5 +13,6 @@ try:
     print(page.search_for_quotes(author, tag))
 except InvalidTagForAuthorError as e:
     print(e)
-except Exception:
+except Exception as e:
+    print(e)
     print("An unknown error occurred. Please try again.")

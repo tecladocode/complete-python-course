@@ -1,3 +1,4 @@
+from typing import List
 from selenium.webdriver.support.ui import Select
 
 from locators.quotes_page_locators import QuotesPageLocators

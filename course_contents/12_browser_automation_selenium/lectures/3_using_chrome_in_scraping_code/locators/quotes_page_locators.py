@@ -1,2 +1,2 @@
 class QuotesPageLocators:
-    QUOTE = 'div.quote'
+    QUOTE = "div.quote"
