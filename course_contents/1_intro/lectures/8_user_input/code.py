@@ -11,7 +11,7 @@ my_name = "Jose"
 # your_name = '?'
 your_name = input("Enter your name: ")
 
-print(f"Hello {your_name}!")
+print(f"Hello {your_name}. My name is {my_name}.")
 
 ## Calculating months
 
