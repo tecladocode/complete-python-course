@@ -47,7 +47,7 @@ def menu():
             selected_function = user_options[selection]
             selected_function()
         else:
-            print('Unknown command-please try again.')
+            print('Unknown command. Please try again.')
 
         selection = input(MENU_PROMPT)
 
