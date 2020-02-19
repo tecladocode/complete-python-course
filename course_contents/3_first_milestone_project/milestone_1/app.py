@@ -1,14 +1,14 @@
-MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by name, or 'q' to quit: "
+MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
 movies = []
 
 
 def add_movie():
-    name = input("Enter the movie name: ")
+    title = input("Enter the movie title: ")
     director = input("Enter the movie director: ")
     year = input("Enter the movie release year: ")
 
     movies.append({
-        'name': name,
+        'title': title,
         'director': director,
         'year': year
     })
@@ -20,16 +20,16 @@ def show_movies():
 
 
 def print_movie(movie):
-    print(f"Name: {movie['name']}")
+    print(f"Title: {movie['title']}")
     print(f"Director: {movie['director']}")
     print(f"Release year: {movie['year']}")
 
 
 def find_movie():
-    search_name = input("Enter movie name you're looking for: ")
+    search_title = input("Enter movie title you're looking for: ")
 
     for movie in movies:
-        if movie["name"] == search_name:
+        if movie["title"] == search_title:
             print_movie(movie)
 
 
