@@ -1,21 +1,5 @@
+MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by name, or 'q' to quit: "
 movies = []
-
-
-def menu():
-    user_input = input("Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie, and 'q' to quit: ")
-    while user_input != 'q':
-        if user_input == 'a':
-            add_movie()
-        elif user_input == 'l':
-            show_movies()
-        elif user_input == 'f':
-            find_by = input("What property of the movie is that? ")
-            looking_for = input("What are you looking for? ")
-            movie = find_movie(looking_for, lambda x: x[find_by])
-            print(movie or 'No movies found.')
-        else:
-            print('Unknown command-please try again.')
-        user_input = input("\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie, and 'q' to quit: ")
 
 
 def add_movie():
@@ -32,21 +16,40 @@ def add_movie():
 
 def show_movies():
     for movie in movies:
-        show_movie_details(movie)
+        print_movie(movie)
 
 
-def show_movie_details(movie):
+def print_movie(movie):
     print(f"Name: {movie['name']}")
     print(f"Director: {movie['director']}")
     print(f"Release year: {movie['year']}")
 
 
-def find_movie(expected, finder):
-    found = []
+def find_movie():
+    search_name = input("Enter movie name you're looking for: ")
+
     for movie in movies:
-        if finder(movie) == expected:
-            found.append(movie)
-    return found
+        if movie["name"] == search_name:
+            print_movie(movie)
+
+
+user_options = {
+    "a": add_movie,
+    "l": show_movies,
+    "f": find_movie
+}
+
+
+def menu():
+    selection = input(MENU_PROMPT)
+    while selection != 'q':
+        if selection in user_options:
+            selected_function = user_options[selection]
+            selected_function()
+        else:
+            print('Unknown command-please try again.')
+
+        selection = input(MENU_PROMPT)
 
 
 menu()
