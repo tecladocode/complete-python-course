@@ -1,0 +1,61 @@
+movie_list = [ ]
+def add_movies():
+  name = input("\nEnter the movie name: ")
+  director = input("Enter the director name:")
+  year = int(input("Enter the year in which movie was released: "))
+  movie_list.append({
+    "name" : name.title(),
+    "director" : director.title(),
+    "year" : year
+  })
+
+def view_movie_name():
+  i=1
+  for movie in movie_list:
+    name, director, year = movie.values()
+    print(f"{i}. {name}.")
+    i+= 1
+
+
+def searchs(prop, i):
+  j=1
+  for movie in movie_list:
+    name, director, year = movie.values()
+    if i==1 and prop == year:
+      print(f"{j}. {name}.")
+    elif i==2 and prop == director:
+      print(f"{j}. {name}.")
+    else:
+      print("No movie with such details found.")
+      j-= 1
+    j+= 1
+
+
+def search_movie():
+  print("\nEnter the filter by which you are seaching movie:\n1. For year.\n2. For Director.")
+  prop = int(input("Enter Choice:"))
+  if prop == 1:
+    prop_value = int(input("Enter the year:"))
+    searchs(prop_value, prop)
+  elif prop == 2:
+    prop_value = input("Enter director name:")
+    searchs(prop_value.title(), prop)
+  
+
+operations = {
+  1 : add_movies,
+  2 : view_movie_name,
+  3 : search_movie
+}
+
+
+print("Enter what you want to do:")
+while(1):
+  operation = int(input("1. For adding movies.\n2. Fow viewing movie list.\n3. For finding the movie.\nEnter your choice: "))
+  operation_function = operations[operation]
+  operation_function()
+  ch = input("Do you want to perform more operations??(Y/N):")
+  if ch == 'Y' or ch == 'y':
+    print()
+  elif ch == 'N' or ch == 'n':
+    break
