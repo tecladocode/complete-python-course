@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head></head>
 <body>
-	<a href="{{ url_for('home') }}">Home</a> <!-- We add this in base.jinja2 and outside the content block so that it is not overridden by other pages. -->
+	<!-- We add this in base.jinja2 and outside the content block so that it is not overridden by other pages. -->
+	<a href="{{ url_for('home') }}">Home</a>
 	{% block content %}
 
 	{% endblock %}
