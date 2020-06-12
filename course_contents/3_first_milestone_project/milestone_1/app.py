@@ -8,9 +8,9 @@ def add_movie():
     year = input("Enter the movie release year: ")
 
     movies.append({
-        'title': title,
-        'director': director,
-        'year': year
+        'title': title.title(),
+        'director': director.title(),
+        'year': year.title()
     })
 
 
@@ -29,7 +29,7 @@ def find_movie():
     search_title = input("Enter movie title you're looking for: ")
 
     for movie in movies:
-        if movie["title"] == search_title:
+        if movie["title"].lower() == search_title.lower():
             print_movie(movie)
 
 
@@ -42,8 +42,8 @@ user_options = {
 
 def menu():
     selection = input(MENU_PROMPT)
-    while selection != 'q':
-        if selection in user_options:
+    while selection.lower() != 'q':
+        if selection.lower() in user_options:
             selected_function = user_options[selection]
             selected_function()
         else:
