@@ -56,3 +56,10 @@ students = [
 
 for student in students:
     print(average(student["grades"]))
+    
+# Sorting using lambda function
+
+a = [[25, 14], [516, 6], [8, 23]]
+a.sort(key=lambda x: x)
+print(a)
+    
