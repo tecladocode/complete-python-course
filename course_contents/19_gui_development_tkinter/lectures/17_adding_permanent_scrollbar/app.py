@@ -109,8 +109,8 @@ def save_file():
 
     try:
         filename = os.path.basename(file_path)
-        text_wgt = get_text_widget()
-        content = text_wgt.get("1.0", "end-1c")
+        text_widget = get_text_widget()
+        content = text_widget.get("1.0", "end-1c")
 
         with open(file_path, "w") as file:
             file.write(content)
@@ -120,7 +120,7 @@ def save_file():
         return
 
     notebook.tab("current", text=filename)
-    text_contents[str(text_wgt)] = hash(content)
+    text_contents[str(text_widget)] = hash(content)
 
 
 def show_about_info():
