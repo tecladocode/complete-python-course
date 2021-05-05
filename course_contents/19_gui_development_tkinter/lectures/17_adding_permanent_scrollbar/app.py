@@ -145,7 +145,7 @@ file_menu = tk.Menu(menubar)
 help_menu = tk.Menu(menubar)
 
 menubar.add_cascade(menu=file_menu, label="File")
-menubar.add_cascade(menu=help_menu, label="Help")
+menubar.add_cascade(menu=help_menu, label="About")
 
 file_menu.add_command(label="New", command=create_file, accelerator="Ctrl+N")
 file_menu.add_command(label="Open", command=open_file, accelerator="Ctrl+O")
