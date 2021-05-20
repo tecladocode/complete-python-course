@@ -1,4 +1,3 @@
-import os
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 
@@ -18,7 +17,9 @@ def check_for_changes():
 
 
 def get_text_widget():
-    text_widget = notebook.nametowidget(notebook.select())
+    current_tab = notebook.nametowidget(notebook.select())
+    text_widget = current_tab.winfo_children()[0]
+
     return text_widget
 
 
@@ -34,15 +35,16 @@ def close_current_tab():
 
 
 def current_tab_unsaved():
-    current_tab_name = notebook.tab("current")["text"]
-    return current_tab_name[-1] == "*"
+    text_widget = get_text_widget()
+    content = text_widget.get("1.0", "end-1c")
+    return hash(content) != text_contents[str(text_widget)]
 
 
 def confirm_close():
     return messagebox.askyesno(
         message="You have unsaved changes. Are you sure you want to close?",
         icon="question",
-        title="Unsaved Changes"
+        title="Unsaved changes",
     )
 
 
@@ -59,32 +61,26 @@ def confirm_quit():
             break
 
     if unsaved and not confirm_close():
-        confirm = messagebox.askyesno(
-            message="You have unsaved changes. Are you sure you want to quit?",
-            icon="question",
-            title="Confirm Quit"
-        )
+        return
 
-        if not confirm:
-            return
-
-        root.destroy()
+    root.destroy()
 
 
 def create_file(content="", title="Untitled"):
-    text_area = tk.Text(notebook)
+    container = ttk.Frame(notebook)
+    container.pack()
+
+    text_area = tk.Text(container)
     text_area.insert("end", content)
     text_area.pack(side="left", fill="both", expand=True)
 
-    notebook.add(text_area, text=title)
-    notebook.select(text_area)
+    notebook.add(container, text=title)
+    notebook.select(container)
 
     text_contents[str(text_area)] = hash(content)
 
-    text_scroll = tk.Scrollbar(text_area, orient="vertical", command=text_area.yview)
-
+    text_scroll = ttk.Scrollbar(container, orient="vertical", command=text_area.yview)
     text_scroll.pack(side="right", fill="y")
-
     text_area["yscrollcommand"] = text_scroll.set
 
 
@@ -92,7 +88,7 @@ def open_file():
     file_path = filedialog.askopenfilename()
 
     try:
-        filename = os.path.basename(file_path)
+        filename = file_path.split("/")[-1]
 
         with open(file_path, "r") as file:
             content = file.read()
@@ -108,7 +104,7 @@ def save_file():
     file_path = filedialog.asksaveasfilename()
 
     try:
-        filename = os.path.basename(file_path)
+        filename = file_path.split("/")[-1]
         text_widget = get_text_widget()
         content = text_widget.get("1.0", "end-1c")
 
@@ -126,17 +122,16 @@ def save_file():
 def show_about_info():
     messagebox.showinfo(
         title="About",
-        message="The Teclado Text Editor is a simple tabbed text editor designed to help you learn Tkinter!"
+        message="The Teclado Text Editor is a simple tabbed text editor designed to help you learn Tkinter!",
     )
 
 
 root = tk.Tk()
-root.geometry("600x400")
 root.title("Teclado Text Editor")
 root.option_add("*tearOff", False)
 
 main = ttk.Frame(root)
-main.pack(fill="both", expand=True, padx=1, pady=(4, 0))
+main.pack(fill="both", expand=True, padx=(1), pady=(4, 0))
 
 menubar = tk.Menu(root)
 root.config(menu=menubar)
@@ -145,15 +140,17 @@ file_menu = tk.Menu(menubar)
 help_menu = tk.Menu(menubar)
 
 menubar.add_cascade(menu=file_menu, label="File")
-menubar.add_cascade(menu=help_menu, label="About")
+menubar.add_cascade(menu=help_menu, label="Help")
 
 file_menu.add_command(label="New", command=create_file, accelerator="Ctrl+N")
-file_menu.add_command(label="Open", command=open_file, accelerator="Ctrl+O")
+file_menu.add_command(label="Open...", command=open_file, accelerator="Ctrl+O")
 file_menu.add_command(label="Save", command=save_file, accelerator="Ctrl+S")
-file_menu.add_command(label="Close Tab", command=close_current_tab, accelerator="Ctrl+Q")
+file_menu.add_command(
+    label="Close Tab", command=close_current_tab, accelerator="Ctrl+Q"
+)
 file_menu.add_command(label="Exit", command=confirm_quit)
 
-help_menu.add_command(label="Help", command=show_about_info)
+help_menu.add_command(label="About", command=show_about_info)
 
 notebook = ttk.Notebook(main)
 notebook.pack(fill="both", expand=True)
