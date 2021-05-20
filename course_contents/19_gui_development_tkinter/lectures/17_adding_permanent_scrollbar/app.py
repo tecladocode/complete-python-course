@@ -17,9 +17,7 @@ def check_for_changes():
 
 
 def get_text_widget():
-    current_tab = notebook.nametowidget(notebook.select())
-    text_widget = current_tab.winfo_children()[0]
-
+    text_widget = notebook.nametowidget(notebook.select())
     return text_widget
 
 
@@ -67,19 +65,16 @@ def confirm_quit():
 
 
 def create_file(content="", title="Untitled"):
-    container = ttk.Frame(notebook)
-    container.pack()
-
-    text_area = tk.Text(container)
+    text_area = tk.Text(notebook)
     text_area.insert("end", content)
     text_area.pack(side="left", fill="both", expand=True)
 
-    notebook.add(container, text=title)
-    notebook.select(container)
+    notebook.add(text_area, text=title)
+    notebook.select(text_area)
 
     text_contents[str(text_area)] = hash(content)
 
-    text_scroll = ttk.Scrollbar(container, orient="vertical", command=text_area.yview)
+    text_scroll = ttk.Scrollbar(text_area, orient="vertical", command=text_area.yview)
     text_scroll.pack(side="right", fill="y")
     text_area["yscrollcommand"] = text_scroll.set
 
@@ -127,6 +122,7 @@ def show_about_info():
 
 
 root = tk.Tk()
+root.geometry("600x400")
 root.title("Teclado Text Editor")
 root.option_add("*tearOff", False)
 
