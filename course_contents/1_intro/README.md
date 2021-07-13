@@ -1,4 +1,4 @@
-## Basic Python Data Types
+## Basic Data Types
 ### Variable `x`
 ### String `"My string"`
 ### Integer `10`
@@ -18,9 +18,22 @@
 ### Modulo `%`
 ### Exponentiation `**`
 
-## Boolean Operators
+## Comparison Operators
+### Equal `==`
+### Not equal `!=`
+### Greater than `>`
+### Less than `<`
+### Greater than or equal to `>=`
+### Less than or equal to `<=`
+
+## Boolean values
+### True
+### False
+
+## Logical Operators
 ### AND
 ### OR
+### NOT
 
 ## Operator precedence
 Showing from most binding to the least binding
