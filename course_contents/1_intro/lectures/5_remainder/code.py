@@ -1,11 +1,11 @@
-division_with_remainder = 12 // 5  # should be 2.4
-print(division_with_remainder)  # prints 2
+integer_division = 13 // 5  # should be 2.6
+print(integer_division)  # prints 2
 
-# 5 goes into 12 two times. (5 * 2 is 10). The remainder is 2.
+# 5 goes into 13 two times. (5 * 2 is 10). The remainder is 3.
 # Getting the remainder of a division is such a popular operation, that Python gives us a way to do it really easily.
 
-remainder = 12 % 5
-print(remainder)  # prints 2
+remainder = 13 % 5
+print(remainder)  # prints 3
 
 # Why is it so popular?
 # What would the remainder be in these divisions?
