@@ -1,4 +1,7 @@
 rebrand-subs/
+subs/
+promo/
+cpc-questions/
 captions/
 page_*.jpeg
 exercises/
@@ -24,3 +27,7 @@ exports/
 videos/
 *.numbers
 *.sketch
+*.pptx
+*.vtt
+*.zip
+**/old
