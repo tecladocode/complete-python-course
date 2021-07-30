@@ -30,11 +30,13 @@ def get_current_tab():
 def close_current_tab():
     if current_tab_unsaved() and not confirm_close():
         return
+    
+    current_tab = get_current_tab()
 
     if len(notebook.tabs()) == 1:
         create_file()
 
-    notebook.forget(get_current_tab())
+    notebook.forget(current_tab)
 
 
 def current_tab_unsaved():
