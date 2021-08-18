@@ -26,10 +26,6 @@
 ### Greater than or equal to `>=`
 ### Less than or equal to `<=`
 
-## Boolean values
-### True
-### False
-
 ## Logical Operators
 ### AND
 ### OR
