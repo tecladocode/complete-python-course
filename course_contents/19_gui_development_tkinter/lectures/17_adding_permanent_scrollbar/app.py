@@ -17,21 +17,26 @@ def check_for_changes():
 
 
 def get_text_widget():
-    current_tab = notebook.nametowidget(notebook.select())
+    current_tab = get_current_tab()
     text_widget = current_tab.winfo_children()[0]
 
     return text_widget
 
 
+def get_current_tab():
+    return notebook.nametowidget(notebook.select())
+
+
 def close_current_tab():
-    current = get_text_widget()
     if current_tab_unsaved() and not confirm_close():
         return
+    
+    current_tab = get_current_tab()
 
     if len(notebook.tabs()) == 1:
         create_file()
 
-    notebook.forget(current)
+    notebook.forget(current_tab)
 
 
 def current_tab_unsaved():
