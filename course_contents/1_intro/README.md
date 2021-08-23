@@ -1,7 +1,13 @@
-# 01. Basic Data Types
+# 01. Python Basic Data Types
 
-# 02. Arithmetic Operators
+# 02. Python Arithmetic Operators
 
-# 03. Comparison Operators
+# 03. Python Comparison Operators
 
-# 04. Logical Operators
+# 04. Python Assignment Operators
+
+# 05. Python Logical Operators
+
+# 06. Python Identity Operators 
+
+# 07. Python Membership Operators
