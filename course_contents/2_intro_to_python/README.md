@@ -198,4 +198,4 @@ Example:
 result = (lambda x, y: x + y)(15, 3)
 ```
 
-Read more about lambda expressions [here](https://www.teclado.com/30-days-of-python/python-30-day-16-lambda-expressions#lambda-expressions).
+Read more about lambda expressions and first-class functions [here](https://www.teclado.com/30-days-of-python/python-30-day-16-lambda-expressions).
