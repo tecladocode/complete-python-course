@@ -31,3 +31,5 @@ videos/
 *.vtt
 *.zip
 **/old
+.venv
+.python-version
