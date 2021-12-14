@@ -199,3 +199,24 @@ result = (lambda x, y: x + y)(15, 3)
 ```
 
 Read more about lambda expressions and first-class functions [here](https://www.teclado.com/30-days-of-python/python-30-day-16-lambda-expressions).
+
+# First Class Functions
+
+- Functions in Python are "first class citizens".
+- This means they are objects that can be stored in data structures and passed as arguments, and stored in variables.
+
+Example:
+
+```python
+# Each of avg, sum, max are functions, and since they are First Class Citizens, they can be stored in this dictionary.
+operations = {
+    "average": avg,
+    "total": sum,
+    "top": max
+}
+
+# We can also use associations to get a function from the dictionary.
+selection = "average"
+operation = operations[selection]
+operation() # This is acts the same as simply calling avg()
+```
