@@ -24,22 +24,22 @@ class QuotesPage:
 
     @property
     def author_dropdown(self) -> Select:
-        element = self.browser.find_element_by_css_selector(
-            QuotesPageLocators.AUTHOR_DROPDOWN
+        element = self.browser.find_element(
+            By.CSS_SELECTOR, QuotesPageLocators.AUTHOR_DROPDOWN
         )
         return Select(element)
 
     @property
     def tags_dropdown(self):
-        element = self.browser.find_element_by_css_selector(
-            QuotesPageLocators.TAG_DROPDOWN
+        element = self.browser.find_element(
+            By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN
         )
         return Select(element)
 
     @property
     def search_button(self):
-        return self.browser.find_element_by_css_selector(
-            QuotesPageLocators.SEARCH_BUTTON
+        return self.browser.find_element(
+            By.CSS_SELECTOR, QuotesPageLocators.SEARCH_BUTTON
         )
 
     def select_author(self, author_name: str):

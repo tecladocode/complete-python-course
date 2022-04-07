@@ -1,4 +1,5 @@
 from typing import List
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 from locators.quotes_page_locators import QuotesPageLocators
@@ -20,15 +21,15 @@ class QuotesPage:
 
     @property
     def author_dropdown(self) -> Select:
-        element = self.browser.find_element_by_css_selector(
-            QuotesPageLocators.AUTHOR_DROPDOWN
+        element = self.browser.find_element(
+            By.CSS_SELECTOR, QuotesPageLocators.AUTHOR_DROPDOWN
         )
         return Select(element)
 
     @property
     def tags_dropdown(self):
-        element = self.browser.find_element_by_css_selector(
-            QuotesPageLocators.TAG_DROPDOWN
+        element = self.browser.find_element(
+            By.CSS_SELECTOR, QuotesPageLocators.TAG_DROPDOWN
         )
         return Select(element)
 
