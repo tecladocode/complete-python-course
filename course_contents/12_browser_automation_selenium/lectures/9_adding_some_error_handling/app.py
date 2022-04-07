@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from pages.quotes_page import QuotesPage, InvalidTagForAuthorError
 
 
@@ -6,7 +7,8 @@ try:
     author = input("Enter the author you'd like quotes from: ")
     tag = input("Enter your tag: ")
 
-    chrome = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
+    service = Service("/usr/local/bin/chromedriver")
+    chrome = webdriver.Chrome(service=service)
     chrome.get("http://quotes.toscrape.com/search.aspx")
     page = QuotesPage(chrome)
 

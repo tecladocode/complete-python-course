@@ -1,8 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 from pages.quotes_page import QuotesPage
 
-chrome = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
+service = Service("/usr/local/bin/chromedriver")
+chrome = webdriver.Chrome(service=service)
 chrome.get("http://quotes.toscrape.com")
 page = QuotesPage(chrome)
 
