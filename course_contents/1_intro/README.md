@@ -1,13 +1,16 @@
-# 01. Python Basic Data Types
+# Course Introduction
 
-# 02. Python Arithmetic Operators
+In this section we assume you are at the very starting point of coding.
 
-# 03. Python Comparison Operators
+We'll cover:
 
-# 04. Python Assignment Operators
+- Variables, numbers
+- String formatting
+- User input
+- Booleans
+- Lists, tuples, sets
+- Dictionaries
 
-# 05. Python Logical Operators
+You can see the [lectures](lectures/) folder for a break down of all the topics and the code in each.
 
-# 06. Python Identity Operators 
-
-# 07. Python Membership Operators
+In the [notes](notes/) folder you can download Markdown or PDF cheatsheets to help you remember some key points.
