@@ -1,60 +1,23 @@
-# Python Conditions
+# Python Fundamentals
 
-## `if` statements
+This section goes deeper into Python, covering many essential features.
 
-## `elif` statements
+We'll cover:
 
-## `else` statements
+- If statements
+- Loops
+- Destructuring
+- Iteration
+- `Break` and `continue`
+- Slicing
+- List, set, and dictionary comprehensions
+- `zip` and `enumerate`
+- `map` and `filter`
+- Functions
+- Arguments, parameters, and return values
+- Default parameter values
+- Lambda functions
 
+You can see the [lectures](lectures/) folder for a break down of all the topics and the code in each.
 
-# Python Loops
-
-## `for` loops
-
-### looping through a dictionary
-
-### the `range()` function
-
-### the `break` keyword
-
-### the `continue` keyword
-
-### the `pass` keyword
-
-### the `else` keyword
-
-### nested `for` loops
-
-## `while` loops
-
-### the `break` keyword
-
-### the `continue` keyword
-
-### the `else` keyword
-
-
-# Python comprehensions
-
-## list comprehensions
-
-## set comprehensions
-
-## dictionary comprehensions
-
-## comprehensions with conditions
-
-## the `map()` function
-
-## the `filter()` function
-
-
-# Python Destructuring
-
-## list slicing
-
-## the `enumerate()` function
-
-## the `zip()` function
-
-## unpacking
+In the [notes](notes/) folder you can download Markdown or PDF cheatsheets to help you remember some key points.

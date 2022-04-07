@@ -20,6 +20,3 @@ Each of the major browsers releases a webdriver for their browser. It essentiall
 Download it from http://chromedriver.chromium.org/. Make sure to download the version for your browser (e.g. v74 if you're using Chrome v74).
 
 Place the de-compressed executable, `chromedriver`, into a folder. Remember the folder's path, as you'll need it after.
-
-## Recap
-
