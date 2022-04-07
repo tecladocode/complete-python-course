@@ -1,10 +1,18 @@
 # Complete Python Course | Learn Python by Doing in 2022
 
+<p align="center">
+ <img src="assets/course-image.png" alt="Complete Python Course | Learn Python by Doing in 2022 (Udemy banner image)"></a>
+</p>
+
+<div align="center">
+
 [![Udemy rating 4.6/5](https://img.shields.io/badge/udemy-4.6%2F5-brightgreen)](https://go.tecla.do/cpc) ![GitHub last commit](https://img.shields.io/github/last-commit/tecladocode/complete-python-course) ![Python 3.10](https://img.shields.io/badge/python-3.10-yellow) [![Discord](https://img.shields.io/discord/614395983807250433)](https://discord.gg/78Nvd3p) [![Twitter Follow](https://img.shields.io/twitter/follow/jslvtr?style=social) ](https://twitter.com/jslvtr)
 
-Welcome to the Complete Python Course! This is a 35 mega video-course covering many Python topics.
+</div>
 
-This course is made for beginners, and takes you an advanced level.
+---
+
+<p align = "center">💡 A 35-hour mega course to take you from beginner to advanced in Python.</p>
 
 ## Getting started
 
