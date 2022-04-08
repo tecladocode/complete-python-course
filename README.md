@@ -56,10 +56,10 @@ We cover many contents in the [video-course](https://go.tecla.do/cpc), but this 
   - Arguments, parameters, and return values
   - Default parameter values
   - Lambda functions
-- [Object-Oriented Programming (video-course only)](https://go.tecla.do/cpc)
+- [Object-Oriented Programming](course_contents/4_object_oriented_programming)
 - [Python errors](course_contents/5_errors)
 - [Working with files](course_contents/6_files)
-- [Type hinting (video-course only)](https://go.tecla.do/cpc)
+- [Type hinting](course_contents/8_type_hinting/)
 - [Advanced Python Development](course_contents/10_advanced_python)
 - [Web Scraping](course_contents/11_web_scraping)
 - [Browser Automation with Selenium](course_contents/12_browser_automation_selenium)
@@ -67,7 +67,8 @@ We cover many contents in the [video-course](https://go.tecla.do/cpc), but this 
 - [Managing Projects with Pipenv](course_contents/14_managing_projects_pipenv)
 - [Flask and Web Development](course_contents/15_flask)
 - [Interacting with APIs using Python](course_contents/16_interacting_with_apis)
-- [Decorators (YouTube mini-course, otherwise video-course only)](https://blog.teclado.com/decorators-in-python/)
+- [Decorators](course_contents/17_decorators/)
+  - [DecoratorsYouTube mini-course](https://blog.teclado.com/decorators-in-python/)
 - [Advanced OOP](course_contents/18_advanced_oop)
 - [GUI Development with Tkinter](course_contents/19_gui_development_tkinter)
 - [Unit testing](course_contents/20_unit_testing)
