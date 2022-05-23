@@ -1,0 +1,3 @@
+Manchester United,Manchester,UK
+Real Madrid,Madrid,Spain
+Juventus,Turin,Italy
