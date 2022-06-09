@@ -1,15 +1,15 @@
-def greet():
-    print("Hello!")
-
-# `before_and_after` is a higher-order function. That just means it's a function which has another function as a parameter.
-def before_and_after(func):  # func is a function passed
-    print("Before...")
-    func()
-    print("After...")
-
-
-# greet, not greet(). That's because we're passing the function, not the result of calling the function.
-before_and_after(greet)
+# def greet():
+#     print("Hello!")
+#
+# # `before_and_after` is a higher-order function. That just means it's a function which has another function as a parameter.
+# def before_and_after(func):  # func is a function passed
+#     print("Before...")
+#     func()
+#     print("After...")
+#
+#
+# # greet, not greet(). That's because we're passing the function, not the result of calling the function.
+# before_and_after(greet)
 
 
 # Another example

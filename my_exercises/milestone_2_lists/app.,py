@@ -1,0 +1,50 @@
+from utils import database
+
+USER_MENU = """
+Enter:
+- 'a' to add a new book
+- 'l' to list all books
+- 'r' to mark a book as read
+- 'd' to delete a book
+- 'q' to quit
+
+Your choice:"""
+
+
+def menu():
+    database.create_book_table()
+    while True:
+        user_input = input(USER_MENU)
+        choice = {'a': prompt_add_book,
+                  'l': list_books,
+                  'r': prompt_read_books,
+                  'd': prompt_delete_book,
+                  }.get(user_input)
+        if user_input == 'q': break
+        elif choice: choice()
+        else: print('Invalid Choice')
+
+
+def prompt_add_book():  # book name and author
+    title = input("Enter book title: ")
+    author = input("Enter book author: ")
+    database.add_book(title, author)
+
+
+def list_books():  # show all books in list
+    books = database.get_all_books()
+    for book in books:
+        print(f"{book['name']} by {book['author']}, read: {'Yes' if book['read']  else 'No'}")
+
+
+def prompt_read_books():  # ask for book and change to "read" in list
+    title = input("Enter book title: ")
+    database.mark_book_as_read(title)
+
+
+def prompt_delete_book():  # ask book-name to remove from list
+    title = input("Enter book title: ")
+    database.delete_book(title)
+
+
+menu()

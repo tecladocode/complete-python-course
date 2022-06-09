@@ -1,3 +1,5 @@
+import sys
+
 movies = []
 
 
@@ -72,15 +74,12 @@ def menu():
             'v': view_movies,
             'a': add_movie,
             'f': find_movie,
-            'q': quit
+            'q': sys.exit
         }
 
         choice = choose.get(option)
 
-        if choice:
-            choice()
-        else:
-            print("invalid Choice")
+        choice() if choice else print("invalid Choice")
 
 
 menu()

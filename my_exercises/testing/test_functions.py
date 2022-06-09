@@ -1,5 +1,5 @@
-from functions import divide
 from unittest import TestCase
+from functions import divide
 
 
 class TestFunctions(TestCase):
