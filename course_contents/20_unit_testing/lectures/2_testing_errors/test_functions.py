@@ -22,5 +22,5 @@ class TestFunctions(TestCase):
         self.assertEqual(divide(dividend, divisor), expected_result)
 
     def test_divide_error_on_zero(self):
-        with self.assertRaises(ZeroDivisionError):
+        with self.assertRaises(ValueError):
             divide(25, 0)

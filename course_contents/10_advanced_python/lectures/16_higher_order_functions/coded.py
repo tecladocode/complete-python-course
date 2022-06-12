@@ -36,4 +36,3 @@ find_by = input("What property are we searching by? ")
 looking_for = input("What are you looking for? ")
 movie = find_movie(looking_for, lambda x: x[find_by])
 print(movie or 'No movies found.')
-

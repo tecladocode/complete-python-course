@@ -22,9 +22,9 @@ if __name__ == '__main__':
     def main():
         loop = asyncio.get_event_loop()
         urls = [
-            'http://google.com',
-            'http://example.com',
-            'http://tecladocode.com/blog'
+            'https://google.com',
+            'https://example.com',
+            'https://tecladocode.com/blog'
         ]
         start = time.time()
         pages = loop.run_until_complete(get_multiple_pages(loop, *urls))

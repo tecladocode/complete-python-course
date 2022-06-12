@@ -56,7 +56,7 @@ If we run this code though, we will get an error:
 
 """
 
-sum(FirstHundredGenerator())  # comment this line out to run the rest of the file.
+# sum(FirstHundredGenerator())  # comment this line out to run the rest of the file.
 
 """
 Similarly if we run this code:

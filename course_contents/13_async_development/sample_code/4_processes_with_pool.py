@@ -29,12 +29,12 @@ print('Single thread total time: ', time.time() - start, '\n\n')
 
 # With two processes, we can do them both at once...
 start = time.time()
+if __name__=="__main__":
+	with ProcessPoolExecutor(max_workers=2) as pool:
+		pool.submit(complex_calculation)
+		pool.submit(complex_calculation)
 
-with ProcessPoolExecutor(max_workers=2) as pool:
-	pool.submit(complex_calculation)
-	pool.submit(complex_calculation)
+	print('Two process total time: ', time.time() - start)
 
-print('Two process total time: ', time.time() - start)
-
-# Run this and see what happens!
+	# Run this and see what happens!
 
