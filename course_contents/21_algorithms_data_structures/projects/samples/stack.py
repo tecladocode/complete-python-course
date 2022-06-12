@@ -6,7 +6,7 @@ class Stack:
         self.items = [e] + self.items
     
     def pop(self):
-        return self.items.pop(0)
+        return self.items.pop()
 
 
 s = Stack()
