@@ -30,7 +30,7 @@ def get_current_tab():
 def close_current_tab():
     if current_tab_unsaved() and not confirm_close():
         return
-    
+
     current_tab = get_current_tab()
 
     if len(notebook.tabs()) == 1:
@@ -93,7 +93,7 @@ def open_file():
     file_path = filedialog.askopenfilename()
 
     try:
-        filename = file_path.split("/")[-1]
+        filename = os.path.basename(file_path)
 
         with open(file_path, "r") as file:
             content = file.read()
@@ -109,7 +109,7 @@ def save_file():
     file_path = filedialog.asksaveasfilename()
 
     try:
-        filename = file_path.split("/")[-1]
+        filename = os.path.basename(file_path)
         text_widget = get_text_widget()
         content = text_widget.get("1.0", "end-1c")
 
