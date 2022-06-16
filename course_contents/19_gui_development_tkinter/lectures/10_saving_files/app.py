@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk, filedialog
 
@@ -14,7 +15,7 @@ def save_file():
     file_path = filedialog.asksaveasfilename()
 
     try:
-        filename = file_path.split("/")[-1]
+        filename = os.path.basename(file_path)
         text_widget = root.nametowidget(notebook.select())
         content = text_widget.get("1.0", "end-1c")
 
