@@ -34,8 +34,9 @@ def close_current_tab():
 
 
 def current_tab_unsaved():
-    current_tab_name = notebook.tab("current")["text"]
-    return current_tab_name[-1] == "*"
+    text_widget = get_text_widget()
+    content = text_widget.get("1.0", "end-1c")
+    return hash(content) != text_contents[str(text_widget)]
 
 
 def confirm_close():
