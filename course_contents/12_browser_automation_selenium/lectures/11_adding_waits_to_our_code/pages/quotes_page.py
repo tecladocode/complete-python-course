@@ -17,8 +17,8 @@ class QuotesPage:
     def quotes(self) -> List[QuoteParser]:
         return [
             QuoteParser(e)
-            for e in self.browser.find_elements_by_css_selector(
-                QuotesPageLocators.QUOTE
+            for e in self.browser.find_elements(
+                By.CSS_SELECTOR, QuotesPageLocators.QUOTE
             )
         ]
 
