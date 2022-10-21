@@ -39,6 +39,7 @@ videos/
 
 # Production
 /build
+/site
 
 # Generated files
 .docusaurus
