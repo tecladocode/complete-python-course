@@ -1,5 +1,5 @@
 site_name: Teclado
-site_url: https://tecladocode.github.io/complete-python-course/
+site_url: https://complete-python.teclado.com
 docs_dir: build
 theme:
   name: material
