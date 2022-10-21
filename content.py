@@ -5,8 +5,9 @@ import shutil
 import string
 import markdown
 from bs4 import BeautifulSoup
+from typing import Dict, List, AnyStr, Union
 
-def get_grouped_sections(root: str = "course_contents") -> dict[str, list]:
+def get_grouped_sections(root: str = "course_contents") -> Dict[AnyStr, List]:
     sections = get_all_sections_with_content(root)
     grouped_sections = {}
     for section in sections:
@@ -34,13 +35,13 @@ def get_all_sections_with_content(root: str = "course_contents"):
         yield {"index": section_index, "lectures": non_hidden_lectures}
 
 
-def get_section_lectures(folder: pathlib.Path | str) -> list[str]:
+def get_section_lectures(folder: Union[pathlib.Path, AnyStr]) -> List[str]:
     """Return a list of pathlib.Path objects for all lectsures in a section folder"""
     lecture_path = pathlib.Path(folder) / "lectures"
     return sorted([folder for folder in lecture_path.glob("*/README.md")])
 
 
-def get_lecture_content(lecture_path: pathlib.Path, root_path: str | pathlib.Path = "course_contents") -> dict[str, str]:
+def get_lecture_content(lecture_path: pathlib.Path, root_path: Union[pathlib.Path, AnyStr] = "course_contents") -> Dict[str, str]:
     """Return a dictionary of lecture content.
     Return a dictionary with the following keys:
     - title, the h1 from the markdown file
@@ -68,7 +69,7 @@ def get_lecture_content(lecture_path: pathlib.Path, root_path: str | pathlib.Pat
     }
 
 
-def get_grouped_build_sections(root: str = "build") -> dict[str, list]:
+def get_grouped_build_sections(root: str = "build") -> Dict[str, list]:
     sections = build_and_get_yaml_contents(root)
     grouped_sections = {}
     for section in sections:
@@ -108,7 +109,7 @@ def build_and_get_yaml_contents(build_path: str = "build"):
         yield section
 
 
-def copy_lectures_to_build_path(section: dict, new_section_name: str, build_path: str = "build"):
+def copy_lectures_to_build_path(section: Dict, new_section_name: str, build_path: str = "build"):
     for lecture in section["lectures"]:
         lecture_name = "_".join(lecture["full_path"].parent.name.split("_")[1:])
         pathlib.Path(build_path, new_section_name, lecture_name).mkdir(parents=True, exist_ok=True)
