@@ -19,7 +19,7 @@ nav:
   #                cog.outl(f"    - {lecture['title']}: {lecture['path']}")
   #]]]
   - Practical Python:
-    - Async Development with Python:
-      - Section Introduction: async_development/README.md
-      - Code samples for this section: async_development/code_samples/README.md
+      - Async Development with Python:
+          - Section Introduction: async_development/README.md
+          - Code samples for this section: async_development/code_samples/README.md
   #[[[end]]]
