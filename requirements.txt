@@ -1,5 +1,6 @@
 mkdocs
 mkdocs-material
 cogapp
-markdown
+markdown==3.4
 watchdog[watchmedo]
+beautifulsoup4
