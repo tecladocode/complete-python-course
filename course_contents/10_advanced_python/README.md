@@ -1,3 +1,7 @@
+---
+group: Intermediate
+hidden: true
+---
 # Advanced Python Development
 
 In this section of the course we look at some advanced Python features, such as:

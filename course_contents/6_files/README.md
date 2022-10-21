@@ -1,3 +1,7 @@
+---
+group: Intermediate
+hidden: true
+---
 # Working with Files in Python
 
 In this section we build a project that stores data in two types of file: CSV and JSON.

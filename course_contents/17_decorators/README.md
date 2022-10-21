@@ -1,3 +1,7 @@
+---
+group: Advanced
+hidden: true
+---
 # Decorators in Python
 
 Decorators allow us to extend another function without modifying it directly.

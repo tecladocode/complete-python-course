@@ -1,3 +1,8 @@
+---
+group: Advanced
+hidden: true
+---
+
 # Python Libraries and Tools
 
 In this section I'll show you some popular Python libraries and tools that you can use to make your project development easier, or to extend your projects.

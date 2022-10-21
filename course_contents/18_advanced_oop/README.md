@@ -1,3 +1,7 @@
+---
+group: Advanced
+hidden: true
+---
 # Advanced Object-Oriented Programming with Python
 
 In this section we look at some more advanced OOP concepts, such as multiple inheritance, abstract classes, interfaces, and properties.

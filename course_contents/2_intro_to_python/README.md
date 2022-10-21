@@ -1,3 +1,7 @@
+---
+group: Introduction
+hidden: true
+---
 # Python Fundamentals
 
 This section goes deeper into Python, covering many essential features.

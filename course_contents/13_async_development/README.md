@@ -1,3 +1,7 @@
+---
+group: Practical Python
+hidden: false
+---
 # Async Development with Python
 
 Python is a single-threaded language, which means that asynchronous development can sometimes be tricky.

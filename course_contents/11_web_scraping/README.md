@@ -1,3 +1,7 @@
+---
+group: Practical Python
+hidden: true
+---
 # Web Scraping
 
 In this section we look at web scraping using Python and the `requests` library.
