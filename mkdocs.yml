@@ -1,4 +1,5 @@
 site_name: Teclado
+site_url: https://complete-python.teclado.com
 docs_dir: build
 theme:
   name: material

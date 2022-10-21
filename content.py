@@ -86,7 +86,11 @@ def build_and_get_yaml_contents(build_path: str = "build"):
     # Delete contents of the build directory
     shutil.rmtree(build_path, ignore_errors=True)
     pathlib.Path(build_path).mkdir(parents=True, exist_ok=True)
-    shutil.copyfile("course_contents/index.md", pathlib.Path(build_path) / "index.md")
+    files = glob.glob("course_contents/*", recursive=True)
+    # Copy all files (not folders) to the build directory
+    for file in files:
+        if pathlib.Path(file).is_file():
+            shutil.copy(file, build_path)
     sections = get_all_sections_with_content()
     for section in sections:
         # Strip the leading numbers of the section folder
