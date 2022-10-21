@@ -1,3 +1,8 @@
+---
+group: Introduction
+hidden: true
+---
+
 # Course Introduction
 
 In this section we assume you are at the very starting point of coding.

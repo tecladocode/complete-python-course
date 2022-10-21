@@ -1,3 +1,7 @@
+---
+group: Practical Python
+hidden: true
+---
 # Browser automation with Selenium
 
 The code is very similar to last section, but now we're launching a browser instead of requesting the page with Python. We will be controlling the browser, instead of just getting HTML.

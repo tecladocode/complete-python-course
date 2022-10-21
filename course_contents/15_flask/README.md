@@ -1,3 +1,7 @@
+---
+group: Practical Python
+hidden: true
+---
 # Web Development with Flask
 
 In this section we learn about making websites using the Flask framework, HTML, and Jinja.

@@ -1,3 +1,8 @@
+---
+group: Advanced
+hidden: true
+---
+
 # GUI Development with Tkinter
 
 In this section we learn about making desktop applications using Python's `tkinter` library.

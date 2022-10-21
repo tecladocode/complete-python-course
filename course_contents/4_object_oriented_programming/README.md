@@ -1,3 +1,7 @@
+---
+group: Introduction
+hidden: true
+---
 # Object-Oriented Programming in Python
 
 This section talks about object-oriented programming in Python. We start off by looking at dictionaries, and how dictionaries are similar to objects--but limited in certain ways.

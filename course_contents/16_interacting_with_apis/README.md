@@ -1,3 +1,7 @@
+---
+group: Practical Python
+hidden: true
+---
 # Interacting with APIs
 
 ## Requirements
