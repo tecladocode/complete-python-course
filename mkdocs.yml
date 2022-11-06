@@ -6,6 +6,7 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
+  - social
   - git-revision-date-localized:
       enable_creation_date: true
 markdown_extensions:
@@ -25,11 +26,12 @@ markdown_extensions:
 theme:
   name: material
   custom_dir: overrides
-  font: false
+  logo: assets/logo.png
   features:
     - navigation.sections
     - navigation.tabs
     - content.code.annotate
+    - content.tooltips
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -57,6 +59,8 @@ extra:
   analytics:
     provider: custom
     domain: complete-python.teclado.com
+  status:
+    new: Recently added
 nav:
   #[[[cog
   #from content import get_grouped_build_sections
@@ -71,7 +75,7 @@ nav:
   #                cog.outl(f"    - {lecture['title']}: {lecture['path']}")
   #]]]
   - Introduction:
-    - Course Introduction:
-      - Section Introduction: intro/README.md
-      - The and & or keywords: intro/and_or/README.md
+      - Course Introduction:
+          - Section Introduction: intro/README.md
+          - The and & or keywords: intro/and_or/README.md
   #[[[end]]]

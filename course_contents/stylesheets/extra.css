@@ -5,11 +5,3 @@ h1, h2 {
 h3 {
   font-weight: 600 !important;
 }
-
-.md-annotation__index [data-md-annotation-id]::before {
-  vertical-align: -0.05em;
-}
-
-.md-annotation__index::after {
-  margin: 0 -.35ch;
-}

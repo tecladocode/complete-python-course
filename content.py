@@ -92,6 +92,7 @@ def build_and_get_yaml_contents(root: str = "course_contents", build_path: str =
     files = glob.glob("course_contents/*", recursive=True)
     # Copy all files (not folders) to the build directory
     dir_util.copy_tree(f"{root}/stylesheets", f"{build_path}/stylesheets")
+    dir_util.copy_tree(f"{root}/assets", f"{build_path}/assets")
     
     for file in files:
         if pathlib.Path(file).is_file():

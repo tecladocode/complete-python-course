@@ -1,3 +1,8 @@
+---
+description: The and & or keywords in Python behave differently from what most people think!
+status: new
+---
+
 # The `and` & `or` keywords
 
 ??? abstract "Summary of this lecture"
