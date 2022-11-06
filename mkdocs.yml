@@ -25,6 +25,7 @@ markdown_extensions:
 theme:
   name: material
   custom_dir: overrides
+  font: false
   features:
     - navigation.sections
     - navigation.tabs
