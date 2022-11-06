@@ -1,4 +1,5 @@
 site_name: The Complete Python Course
+site_url: https://complete-python.teclado.com
 docs_dir: build
 repo_url: https://github.com/tecladocode/complete-python-course
 repo_name: tecladocode/complete-python-course
