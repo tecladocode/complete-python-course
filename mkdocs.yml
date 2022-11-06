@@ -1,10 +1,61 @@
-site_name: Teclado
+site_name: The Complete Python Course
 docs_dir: build
+repo_url: https://github.com/tecladocode/complete-python-course
+repo_name: tecladocode/complete-python-course
+extra_css:
+  - stylesheets/extra.css
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.sections
     - navigation.tabs
+    - content.code.annotate
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+extra:
+  analytics:
+    provider: custom
+    domain: complete-python.teclado.com
 nav:
   #[[[cog
   #from content import get_grouped_build_sections
@@ -18,8 +69,8 @@ nav:
   #            if not lecture["hidden"]:
   #                cog.outl(f"    - {lecture['title']}: {lecture['path']}")
   #]]]
-  - Practical Python:
-      - Async Development with Python:
-          - Section Introduction: async_development/README.md
-          - Code samples for this section: async_development/code_samples/README.md
+  - Introduction:
+    - Course Introduction:
+      - Section Introduction: intro/README.md
+      - The and & or keywords: intro/and_or/README.md
   #[[[end]]]

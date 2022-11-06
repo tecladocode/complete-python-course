@@ -4,6 +4,7 @@ import pathlib
 import shutil
 import string
 import markdown
+from distutils import dir_util
 from bs4 import BeautifulSoup
 from typing import Dict, List, AnyStr, Union
 
@@ -38,7 +39,8 @@ def get_all_sections_with_content(root: str = "course_contents"):
 def get_section_lectures(folder: Union[pathlib.Path, AnyStr]) -> List[str]:
     """Return a list of pathlib.Path objects for all lectsures in a section folder"""
     lecture_path = pathlib.Path(folder) / "lectures"
-    return sorted([folder for folder in lecture_path.glob("*/README.md")])
+    lecture_readmes = [folder for folder in lecture_path.glob("*/README.md")]
+    return sorted(lecture_readmes, key=lambda e: int(str(e.parent.name).split("_")[0]))
 
 
 def get_lecture_content(lecture_path: pathlib.Path, root_path: Union[pathlib.Path, AnyStr] = "course_contents") -> Dict[str, str]:
@@ -69,8 +71,8 @@ def get_lecture_content(lecture_path: pathlib.Path, root_path: Union[pathlib.Pat
     }
 
 
-def get_grouped_build_sections(root: str = "build") -> Dict[str, list]:
-    sections = build_and_get_yaml_contents(root)
+def get_grouped_build_sections(root: str = "course_contents", build_path: str = "build") -> Dict[str, list]:
+    sections = build_and_get_yaml_contents(root, build_path)
     grouped_sections = {}
     for section in sections:
         group = section["index"]["group"]
@@ -83,12 +85,14 @@ def get_grouped_build_sections(root: str = "build") -> Dict[str, list]:
     return grouped_sections
 
 
-def build_and_get_yaml_contents(build_path: str = "build"):
+def build_and_get_yaml_contents(root: str = "course_contents", build_path: str = "build"):
     # Delete contents of the build directory
     shutil.rmtree(build_path, ignore_errors=True)
     pathlib.Path(build_path).mkdir(parents=True, exist_ok=True)
     files = glob.glob("course_contents/*", recursive=True)
     # Copy all files (not folders) to the build directory
+    dir_util.copy_tree(f"{root}/stylesheets", f"{build_path}/stylesheets")
+    
     for file in files:
         if pathlib.Path(file).is_file():
             shutil.copy(file, build_path)

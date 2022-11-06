@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Strings and string formatting
 
 * Strings
