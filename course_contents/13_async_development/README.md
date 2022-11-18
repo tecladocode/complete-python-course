@@ -1,6 +1,6 @@
 ---
 group: Practical Python
-hidden: false
+hidden: true
 ---
 # Async Development with Python
 

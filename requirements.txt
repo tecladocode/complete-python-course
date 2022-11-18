@@ -1,6 +1,0 @@
-mkdocs
-mkdocs-material
-cogapp
-markdown
-watchdog[watchmedo]
-beautifulsoup4
