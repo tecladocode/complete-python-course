@@ -1,6 +1,6 @@
 ---
 group: Introduction
-hidden: false
+id: intro
 ---
 
 # Course Introduction

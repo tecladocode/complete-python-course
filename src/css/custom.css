@@ -1,0 +1,125 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 90%;
+  --ifm-code-padding-horizontal: 0.3rem;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-code-border-radius: 5px;
+  --aa-primary-color-rgb: 0, 0, 0 !important;
+  --aa-input-border-color-rgb: 0, 0, 0 !important;
+}
+
+.aa-DetachedSearchButton {
+  padding-right: 16px !important;
+  border-radius: 8px !important;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.codeTabContainer {
+  padding: 1rem;
+  background-color: rgba(46, 133, 85, 0.15);
+  border-radius: 8px;
+}
+
+.menu {
+  font-weight: normal;
+}
+
+.menu__caret::before, .menu__link--sublist-caret::after {
+  background: url("/img/folder-closed.svg") no-repeat;
+  transform: none;
+}
+
+.menu__list-item--collapsed .menu__link--sublist::after, .menu__list-item--collapsed .menu__caret::before {
+  transform: none;
+}
+
+.menu__list-item-collapsible .menu__link--sublist[aria-expanded='true']::after,
+.menu__list-item-collapsible .menu__link--sublist[aria-expanded='true'] + button::before {
+  background: url("/img/folder-open.svg") no-repeat;
+}
+
+.menu__list-item-collapsible .menu__link--sublist[aria-expanded='false']:hover::after,
+.menu__list-item-collapsible .menu__link--sublist[aria-expanded='false'] + button:hover::before {
+  fill: var(--ifm-color-primary-lightest);
+}
+
+.menu__link {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.menu__list-item-collapsible, .theme-doc-sidebar-item-link-level-1 {
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.theme-doc-sidebar-item-category-level-1 .menu__list-item .menu__link {
+  border-left: 1px solid var(--ifm-color-gray-200);
+}
+
+.theme-doc-sidebar-item-category-level-1 .menu__list-item .menu__link:hover {
+  border-left: 1px solid var(--ifm-color-gray-600);
+  color: var(--ifm-color-gray-900);
+}
+
+.theme-doc-sidebar-item-category-level-1 .menu__list-item .menu__link--active {
+  border-left: 1px solid var(--ifm-color-primary-lightest);
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.theme-doc-sidebar-item-category-level-1 .menu__list-item .menu__link--active:hover {
+  color: var(--ifm-color-primary);
+}
+
+.menu__link--active:not(.menu__link--sublist), .menu__list-item-collapsible--active {
+  background: unset;
+}
+
+.menu__link:hover, .menu__caret:hover {
+  background: inherit;
+}
+
+.menu__list-item:not(:first-child) {
+  margin-top: 0;
+}
+
+.menu__link[href]:hover, .menu__caret:hover {
+  color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible:hover {
+  background: inherit;
+}
