@@ -1,64 +1,52 @@
 ---
 description: The and & or keywords in Python behave differently from what most people think!
-status: new
+sidebar_label: The and & or keywords
 ---
 
 # The `and` & `or` keywords
 
-??? abstract "Summary of this lecture"
+:::tip Summary of this lecture
+The `and` and `or` keywords behave slightly differently than many learners believe. Every value in Python can be turned to a boolean (`True`/`False`), so we say values can be "truthy" or "falsy" based on what boolean they return.
 
-    The `and` and `or` keywords behave slightly differently than many learners believe. Every value in Python can be turned to a boolean (`True`/`False`), so we say values can be "truthy" or "falsy" based on what boolean they return.
+Zero or empty values, such as `0`, `""`, or empty lists and tuples, are "falsy". Almost every other value is "truthy".
 
-    Zero or empty values, such as `0`, `""`, or empty lists and tuples, are "falsy". Almost every other value is "truthy".
+The `and` keyword returns the first value if it is falsy. Otherwise it returns the second value. The `or` keyword returns the first value if it is truthy. Otherwise it returns the second value.
+:::
 
-    The `and` keyword returns the first value if it is falsy. Otherwise it returns the second value. The `or` keyword returns the first value if it is truthy. Otherwise it returns the second value.
+## Using `and` & `or` with Boolean values
 
-## A common misunderstanding
+### The `and` keyword
 
-The `and` and `or` keywords are probably the most often-misunderstood keywords in Python. That's because they are often used in boolean logic, and most students assume they can only be used in boolean logic.
+The `and` and `or` keywords behave _logically_ with Boolean values. If you say "the door is open and the window is closed", everyone understands that both things are true.
 
-Let me explain what I mean with some code!
-
-```py
-age = int(input("Enter your age: "))  # (1)
-can_learn_programming = age > 0 and age < 150  # (2)
-
-print(f"You can learn programming: {can_learn_programming}")
-```
-
-1. Here we ask the user for their age and turn it into an `int`. That's so we can compare it to other numeric values in the next line.
-2. Assume the user entered `20`. Then `age > 0` will evaluate to `True`, and `age < 150` will also evaluate to `True`. Then, we can expect `can_learn_programming` to be `True`.
-
-The assumption, which is **incorrect**, is that when the `and` keyword is placed between two `True` values it returns `True`, and in all other cases it returns `False`.
-
-Let's see what happens when we try something different:
+Let's say you've asked the user for their age, they've entered 25, and you want to see if the age is **over 18** and **under 65**:
 
 ```py
-age = 60
-can_learn_programming = True
+age = 25  # could be int(input("Enter your age: "))
 
-result = can_learn_programming and age
-print(result)
+result = age > 18 and age < 65  # True and True
+print(result)  # True
 ```
 
-What do you think the result will be?
+If we make a change to check the age is **under 18 and over 65**, then we get `False`:
 
-Try running it in repl.it or your editor of choice!
+```py
+age = 25
 
-You can see the result is `60` 🤔 but that seems really strange. How can `True and 60` result in `60`?
-
-That's because the `and` keyword returns the second value if the first one is "truthy" (more on that later). Otherwise, it returns the first value.
-
-```mermaid
-graph LR
-A[Start] --> B{First value truthy?};
-B --> |Yes| C[Return second value];
-B --> |No| D[Return first value];
+result = age < 18 and age > 65  # False and False
+print(result)  # False
 ```
 
-Weird, right? Let's try a few combinations:
+If we do something like `age < 18 and age < 65`, we still get `False` because both conditions aren't `True`. `age < 18` is `False`:
 
-## Table of evaluations for `and` with `True` and `False`
+```py
+age = 25
+
+result = age < 18 and age < 65  # False and True
+print(result)  # False
+```
+
+Here's a table of the potential options for the `and` keyword.
 
 | First value | Second value | Operation         | Result  |
 | ----------- | ------------ | ----------------- | ------- |
@@ -67,107 +55,53 @@ Weird, right? Let's try a few combinations:
 | `False`     | `True`       | `False and True`  | `False` |
 | `False`     | `False`      | `False and False` | `False` |
 
-You can see that in every case with these booleans, when the first value was `True`, the second value was returned by the `and` operation. When the first value was `False`, then _it_ was returned.
+Something interesting to note is that the `and` keyword **returns the first value if it is `False`, otherwise it returns the second value**.
 
-## Truth value testing in Python
-
-What happens when we start combining other values? Let's make a couple more tables:
-
-| First value | Second value | Operation         | Result  |
-| ----------- | ------------ | ----------------- | ------- |
-| `56`        | `False`      | `56 and False`    | `False` |
-| `1`         | `34`         | `1 and 34`        | `1`     |
-| `False`     | `54`         | `False and 54`    | `False` |
-| `False`     | `False`      | `False and False` | `False` |
-
-And this one:
-
-| First value | Second value | Operation       | Result |
-| ----------- | ------------ | --------------- | ------ |
-| `True`      | `0`          | `True and 0`    | `0`    |
-| `True`      | `True`       | `True and True` | `True` |
-| `0`         | `True`       | `0 and True`    | `0`    |
-| `0`         | `0`          | `0 and 0`       | `0`    |
-
-So from this we can tell that the number `0` is equivalent to `False` when it comes to the `and` keyword. And positive numbers are equivalent to `True`.
-
-This has a name in Python: **truth value testing**. Every value in Python can be converted into a boolean, and depending on what the value is, you'll get either `True` or `False`.
-
-We convert values to booleans using the `bool()` function:
+This may seem confusing, but it actually simplifies the way the keyword works. For example, here:
 
 ```py
-value = 0
-converted = bool(value)
-print(converted)  # False
+age = 25
+
+result = age < 18 and age < 65  # False and ??? doesn't matter
+print(result)  # False
 ```
 
-```py
-value = 1
-converted = bool(value)
-print(converted)  # True
-```
+Python doesn't have to calculate `age < 65` because it knows that the result will be `False`, since `False and anything` is always `False`.
 
-It's not difficult to remember which values will evaluate to `False`, and it's easy enough to check (just by running code like the one just above!).
-
-The values that evaluate to `False` when passed through `bool()` are empty / zero values, such as:
-
-- Empty strings, `""`.
-- Empty lists, tuples, dictionaries, or sets, `[]`, `()`, `{}`, `set()`.
-- The number `0` (and its equivalents)
-- The constants `None` and `False`.
-
-We call these values "falsy" since we can treat them as `False` for the purposes of boolean comparisons. Values that would evaluate to `True` are called "truthy".
-
-For a more complete list, see the [official documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing).
-
-With this, you'll be able to easily tell what the result of these operations will be:
-
-<div class="annotate" markdown>
-
-- `34 and 10` (1)
-- `0 and "hello"` (2)
-- `10 and "world"` (3)
-- `-3 and 87.5` (4)
-
-</div>
-
-1. `34` is truthy, so `and` returns the second value. The result is `10`.
-2. `0` is falsy, so `and` returns it. The result is `0`.
-3. `10` is truthy, so `and` returns the second value. The result is `"world"`.
-4. `-3` is truthy, so `and` returns the second value. The result is `87.5`.
-
-## The `or` keyword in Python.
-
-Now that you know how `and` works, learning how `or` works is a piece of cake!
-
-`or` returns the first value if it is truthy, otherwise it returns the second value. The opposite of `and`!
+Here's a diagram to help you remember how the `and` keyword works:
 
 ```mermaid
 graph LR
 A[Start] --> B{First value falsy?};
-B --> |Yes| C[Return second value];
-B --> |No| D[Return first value];
+B --> |Yes| C[Return first value];
+B --> |No| D[Return second value];
 ```
 
-Try to figure out what these operations would return:
+### The `or` keyword
 
-<div class="annotate" markdown>
+The `or` keyword is more or less the opposite!
 
-- `None or 35` (1)
-- `0 or "hello"` (2)
-- `10 or "world"` (3)
-- `-3 or 87.5` (4)
+```mermaid
+graph LR
+A[Start] --> B{First value truthy?};
+B --> |Yes| C[Return first value];
+B --> |No| D[Return second value];
+```
 
-</div>
+That's because if the first value is `True`, then it doesn't matter what the second value is, `True or anything` will always be `True`.
 
-1. `None` is falsy, so `or` returns the second value. The result is `35`.
-2. `0` is falsy, so `or` returns the second value. The result is `"hello"`.
-3. `10` is truthy, so `or` returns it. The result is `10`.
-4. `-3` is truthy, so `or` returns it. The result is `-3`.
+For example, let's look at this code:
 
-## Table of evaluations for `or` with `True` and `False`
+```py
+age = 25
 
-The traditional truth table for `or` also follows this principle:
+result = age > 18 or age < 65  # True and ??? doesn't matter
+print(result)  # True
+```
+
+Have a play around with the `and` and `or` keywords, and try out all the different combinations or `True` and `False`!
+
+Here's a table of the `or` keyword:
 
 | First value | Second value | Operation        | Result  |
 | ----------- | ------------ | ---------------- | ------- |
@@ -176,4 +110,101 @@ The traditional truth table for `or` also follows this principle:
 | `False`     | `True`       | `False or True`  | `True`  |
 | `False`     | `False`      | `False or False` | `False` |
 
-In every case where the first value was truthy, it was returned. If it wasn't, then the second value was returned.
+## Using `and` & `or` with non-Boolean values
+
+### Truthy and Falsy values (Truth Value Testing)
+
+In the diagrams earlier I wrote the values must be "truthy" or "falsy". I didn't write `True` and `False` on purpose.
+
+Almost every value in Python can be converted into a Boolean value using the `bool()` function, even if it doesn't seem to make "sense". For example:
+
+```python
+bool(0)  # False, zero
+bool(13)  # True
+
+bool("")  # False, empty string
+bool("Hello")  # True
+
+bool([])  # False, empty list
+bool([1, 3, 5])  # True
+```
+
+Generally, zero or empty values evaluate to `False` when passed through `bool()`. Non-zero or non-empty values evaluate to `True`. For a more complete list, see the [official documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing).
+
+So if you use the `and` or `or` keywords with any value, even if they are not Booleans, the principle still applies.
+
+Here's an example:
+
+```python
+default_age = 30
+age = 0
+
+user_age = age or default_age
+print(user_age)  # 30
+```
+
+Since `age` is `0`, and that is a "falsy" value, then `or` returns the second value, which is `30`.
+
+This may not seem very useful just now, but it's actually a super-common pattern. Here's another, more complete example:
+
+```python
+default_greeting = "there"
+name = input("What's your name? (optional) ")
+user_name = name or default_greeting
+
+print(f"Hello, {user_name}!")  # Hello, there or Hello, Bob (example)
+```
+
+It's less common to use the `and` keyword in this way, but it can still be done. It's worth knowing about it!
+
+### Examples of `and` and `or` on non-Boolean values
+
+Here are a few questions, see if you can calculate the correct result!
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<div className="codeTabContainer">
+<Tabs>
+<TabItem value="questions" label="Questions" default>
+
+1. `34 and 10`
+1. `0 and "hello"`
+1. `10 and "world"`
+1. `-3 and 87.5`
+
+</TabItem>
+<TabItem value="answers" label="Answers">
+
+1. `34 and 10` ➡️ `34` is truthy, so `and` returns the second value. The result is `10`.
+2. `0 and "hello"` ➡️ `0` is falsy, so `and` returns it. The result is `0`.
+3. `10 and "world"` ➡️ `10` is truthy, so `and` returns the second value. The result is `"world"`.
+4. `-3 and 87.5` ➡️ `-3` is truthy, so `and` returns the second value. The result is `87.5`.
+
+</TabItem>
+</Tabs>
+</div>
+<br/>
+
+And now for the `or` keyword:
+
+<div className="codeTabContainer">
+<Tabs>
+<TabItem value="questions" label="Questions" default>
+
+1. `None or 35`
+2. `0 or "hello"`
+3. `10 or "world"`
+4. `-3 or 87.5`
+
+</TabItem>
+<TabItem value="answers" label="Answers">
+
+1. `None or 35` ➡️ `None` is falsy, so `or` returns the second value. The result is `35`.
+2. `0 or "hello"` ➡️ `0` is falsy, so `or` returns the second value. The result is `"hello"`.
+3. `10 or "world"` ➡️ `10` is truthy, so `or` returns it. The result is `10`.
+4. `-3 or 87.5` ➡️ `-3` is truthy, so `or` returns it. The result is `-3`.
+
+</TabItem>
+</Tabs>
+</div>

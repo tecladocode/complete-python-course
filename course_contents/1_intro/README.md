@@ -1,6 +1,6 @@
 ---
 group: Introduction
-hidden: false
+id: intro
 ---
 
 # Course Introduction
@@ -16,7 +16,7 @@ We'll cover:
 - Lists, tuples, sets
 - Dictionaries
 
-On the left hand side you'll see a table of contents with all the lectures for which we have written an e-book page. At the moment, since this e-book is new, that's just the [`and` and `or` lecture](and_or/). More coming soon!
+On the left hand side you'll see a table of contents with all the lectures for which we have written an e-book page. At the moment, since this e-book is new, that's just the [`and` and `or` lecture](/intro/lectures/and_or/). More coming soon!
 
 You can see the [lectures](https://github.com/tecladocode/complete-python-course/tree/master/course_contents/1_intro/lectures) folder for a break down of all the topics and the code in each.
 
