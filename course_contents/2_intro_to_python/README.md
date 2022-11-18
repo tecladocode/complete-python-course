@@ -22,6 +22,6 @@ We'll cover:
 - Default parameter values
 - Lambda functions
 
-You can see the [lectures](/intro_to_python/lectures/) folder for a break down of all the topics and the code in each.
+You can see the [lectures](https://github.com/tecladocode/complete-python-course/tree/master/course_contents/2_intro_to_python/lectures/) folder for a break down of all the topics and the code in each.
 
-In the [notes](/intro_to_python/notes/) folder you can download Markdown or PDF cheatsheets to help you remember some key points.
+In the [notes](https://github.com/tecladocode/complete-python-course/tree/master/course_contents/2_intro_to_python/notes/) folder you can download Markdown or PDF cheatsheets to help you remember some key points.
