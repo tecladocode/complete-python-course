@@ -1,9 +1,0 @@
-mkdocs
-mkdocs-material
-cogapp
-markdown
-watchdog[watchmedo]
-beautifulsoup4
-mkdocs-git-revision-date-localized-plugin
-pillow
-cairosvg
