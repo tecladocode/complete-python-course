@@ -1,7 +1,3 @@
----
-group: Introduction
-hidden: true
----
 # Errors in Python
 
 In this section we'll learn about errors and exceptions in Python. We can use them for flow control by following the "ask for forgiveness rather than permission" part of the Python ethos.
