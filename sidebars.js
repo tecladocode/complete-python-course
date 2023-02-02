@@ -27,6 +27,11 @@ const sidebars = {
         // },
       ],
     },
+    {
+      type: "category",
+      label: "Errors in Python",
+      items: ["errors/lectures/handling_user_errors_exercise/README"],
+    },
   ],
 };
 
