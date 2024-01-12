@@ -42,7 +42,7 @@ Here's an example of a JSON file that stores the same data as the CSV file above
             "name": "Chris",
             "title": "Technical Analyst",
             "salary": 55000
-        },
+        }
     ]
 }
 ```
